@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Library Room Booking</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+    h2 {
+        text-align: center;
+        margin-top: 20px;
+    }
+    table {
+        width: 80%;
+        margin: 20px auto;
+        border-collapse: collapse;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+    }
+    th, td {
+        border: 1px solid #dddddd;
+        text-align: center;
+        padding: 12px;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    .available {
+        background-color: lightgreen;
+    }
+    .occupied {
+        background-color: tomato;
+    }
+    button {
+        padding: 8px 20px;
+        background-color: dodgerblue;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+    input[type=datetime-local] {
+        width: 150px;
+        margin: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 8px;
+    }
+</style>
+</head>
+<body>
+
+<h2>Current Date/Time: <span id="currentDateTime"></span></h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Library</th>
+            <th>Status</th>
+            <th>CurrentDateTime</th>
+            <th>Reserve</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Room 1</td>
+            <td class="available">free</td>
+            <td><input type="datetime-local" id="room1DateTime"></td>
+            <td><button onclick="bookRoom(1)">Click</button></td>
+        </tr>
+        <tr>
+            <td>Room 2</td>
+            <td class="occupied">unavailable</td>
+            <td><input type="datetime-local" id="room2DateTime"></td>
+            <td><button onclick="bookRoom(2)">Click</button></td>
+        </tr>
+        <tr>
+            <td>Room 3</td>
+            <td class="available">free</td>
+            <td><input type="datetime-local" id="room3DateTime"></td>
+            <td><button onclick="bookRoom(3)">Click</button></td>
+        </tr>
+        <tr>
+            <td>Room 4</td>
+            <td class="occupied">unavailable</td>
+            <td><input type="datetime-local" id="room3DateTime"></td>
+            <td><button onclick="bookRoom(3)">Click</button></td>
+        </tr>
+        <tr>
+            <td>Room 5</td>
+            <td class="available">free</td>
+            <td><input type="datetime-local" id="room3DateTime"></td>
+            <td><button onclick="bookRoom(3)">Click</button></td>
+        </tr>
+        <tr>
+            <td>Room 6</td>
+            <td class="occupied">unavailable</td>
+            <td><input type="datetime-local" id="room3DateTime"></td>
+            <td><button onclick="bookRoom(3)">Click</button></td>
+        </tr>
+        <!-- เพิ่มห้องสมุดตามต้องการ -->
+    </tbody>
+</table>
+
+<script>
+    function bookRoom(roomNumber) {
+        var dateTimeInput = document.getElementById('room' + roomNumber + 'DateTime');
+        var dateTime = dateTimeInput.value;
+        alert("คุณได้ทำการจองห้องสมุดที่ " + roomNumber + " ในวันที่/เวลา " + dateTime);
+        // ตรวจสอบสถานะห้องสมุดแล้วทำการปรับเปลี่ยนสถานะตามต้องการ (ไม่ได้ใส่เนื่องจากนี่เป็นตัวอย่างเพียงอย่างเดียว)
+    }
+
+    function updateCurrentDateTime() {
+        var currentDateTimeElement = document.getElementById('currentDateTime');
+        var currentDateTime = new Date().toLocaleString();
+        currentDateTimeElement.textContent = currentDateTime;
+    }
+
+    // อัพเดทเวลาปัจจุบันทุกๆ 1 วินาที
+    setInterval(updateCurrentDateTime, 1000);
+
+    // เรียกใช้ฟังก์ชันเพื่อแสดงเวลาปัจจุบันทันทีเมื่อโหลดหน้าเว็บ
+    updateCurrentDateTime();
+</script>
+
+</body>
+</html>

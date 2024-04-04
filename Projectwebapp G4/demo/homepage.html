@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+        }
+        /* navbar */
+
+        .nav {
+            display: flex;
+            margin-right: 5px;
+            flex-wrap: wrap;
+        }
+
+        .nav h1 {
+            margin: 0;
+            padding-right: 20px;
+            white-space: nowrap;
+            font-size: 20px;
+        }
+
+        .nav a {
+            text-decoration: underline;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        nav {
+            background-color: #1c1b1b;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 16px;
+        }
+
+        nav a:hover {
+            text-decoration: none;
+        }
+
+        .right-buttons {
+            display: flex;
+            align-items: center;
+        }
+
+        .register-btn,
+        .login-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .login-btn {
+            background-color: #1b247f;
+        }
+
+        .register-btn:hover {
+            background-color: #45a049;
+        }
+
+        .login-btn:hover {
+            background-color: #27358b;
+        }
+
+        .nav .home a {
+            color: white;
+            background-color: #35a1bf;
+            border-radius: 20px;
+            padding: 10px;
+
+        }
+
+        /* img content */
+
+        .img-container {
+            max-width: 100%;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .img-container img {
+            width: 100%;
+            height: 810px;
+            object-fit: cover;
+        }
+
+        /* footer */
+
+        .footer {
+            text-align: center;
+            color: rgb(254, 252, 252);
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav">
+            <h1 class="home"><a href="homepage.html">Home</a></h1>
+        </div>
+        <div class="right-buttons">
+            <a class="register-btn" href="std_resister.html">Register</a>
+            <a class="login-btn" href="std_login.html">Login</a>
+        </div>
+    </nav>
+
+    <div class="img-container">
+        <img src="https://scontent.fbkk12-2.fna.fbcdn.net/v/t39.30808-6/380690713_641623244764675_1646284002541559407_n.jpg?stp=dst-jpg_p526x395&_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_eui2=AeGJvyWUx7aSh69WfLiR8vMFEVXzGbLOG2kRVfMZss4baaXWO2HxUqwCmJFwQ5DDRDAvsaikNFkPqWoTHcIyfFt5&_nc_ohc=BvkXA6yzUTcAX-RlLck&_nc_ht=scontent.fbkk12-2.fna&oh=00_AfAVHzb4q4B6YF9YQ-v88SvN2bFaqcaMuufDn4NJBIwstg&oe=6611F5D5">
+        <div class="footer">
+            <p> © 2024 Mae Fah Luang</p>
+        </div>
+    </div>
+</body>
+</html>

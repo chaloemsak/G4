@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Slot Card</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+     <!-- sweetalert -->
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.33/dist/sweetalert2.all.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background-color: #1c1b1b;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 9999;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 16px;
+        }
+
+        nav a:hover {
+            text-decoration: none;
+        }
+
+        .right-buttons {
+            display: flex;
+            align-items: center;
+        }
+
+        .logout-btn {
+            background-color: #ca0e11;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-right: 40px;
+        }
+
+        .logout-btn:hover {
+            background-color: #c61111;
+        }
+
+        .nav {
+            display: flex;
+            margin-right: 5px;
+        }
+
+        .nav h1 {
+            margin: 0;
+            padding-right: 20px;
+            white-space: nowrap;
+            margin-left: auto;
+        }
+
+        .nav a {
+            text-decoration: underline;
+            color: #fff;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+
+        .card {
+            height: 420px;
+            width: 400px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #f4e59d;
+            margin: 10px;
+            margin-top: 100px;
+        }
+
+        .card h2 {
+            text-align: center;
+        }
+
+        .cardcontent h3 {
+            background-color: #f4e59d;
+            border-radius: 20px;
+            width: 150px;
+            margin: 0 auto 20px auto;
+        }
+
+        .cardcontent {
+            padding: 10px;
+            margin: 10px;
+            border-radius: 20px;
+            background-color: rgb(244, 244, 240);
+            text-align: center;
+        }
+
+        .cardcontent>div {
+            margin-bottom: 15px;
+        }
+
+        .cardcontent>select,
+        .cardcontent>table,
+        .cardcontent>button {
+            width: calc(100% - 20px);
+        }
+
+        .cardcontent>select,
+        .cardcontent>button {
+            margin-bottom: 15px;
+        }
+
+        .cardcontent select {
+            background-color: #fcfafa;
+            width: calc(100% - 20px);
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+            font-size: 16px;
+            text-align: center;
+            border-radius: 20px;
+            color: #333;
+        }
+
+        .cardcontent select option {
+            background-color: #fcfafa;
+            color: #333;
+        }
+
+        button {
+            width: 50%;
+            padding: 8px 20px;
+            background-color: dodgerblue;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            background-color: #116479;
+        }
+
+        button[type="button"] {
+            width: 40%;
+            border-radius: 20px;
+            padding: 10px;
+        }
+
+
+        .time-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            border: 1px solid #fcfafa;
+        }
+
+        .time-table th,
+        .time-table td {
+            border: 1px solid #131010;
+            padding: 8px;
+            text-align: center;
+            font-size: 14px;
+            color: #0c0a0a;
+        }
+
+        .time-table td {
+            padding-left: 6px;
+            font-size: 12px;
+        }
+
+        .time-table {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .time-table th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        .time-table tr:nth-child(1) td {
+            background-color: #4CAF50;
+        }
+
+        .time-table tr:nth-child(2) td {
+            background-color: #c61111;
+        }
+
+        .time-table tr:nth-child(3) td {
+            background-color: #353bf0;
+        }
+
+        .time-table tr:nth-child(4) td {
+            background-color: #ccc;
+        }
+
+        .nav .home a {
+            color: white;
+            background-color: #35a1bf;
+            border-radius: 20px;
+            padding: 10px;
+        }
+
+        #currentDateTime {
+            width: 70%;
+            margin-left: 60px;
+            padding: 10px;
+            border-radius: 20px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            text-align: center;
+            background-color: #f9f6f6;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="nav">
+            <h1 class="home"><a href="std_browse.html">Home</a></h1>
+            <h1><a href="std_request_status.html">Reserved status</a></h1>
+            <h1><a href="std_history.html">History</a></h1>
+        </div>
+        <div class="right-buttons">
+            <a class="logout-btn" onclick="confirmLogout()">Logout</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="card">
+            <h2>Room 1</h2>
+            <div id="currentDateTime"></div>
+            <div class="cardcontent">
+                <!-- <div>
+                    <h3>Select Time</h3>
+                </div> -->
+                <select id="time-slot" disabled>
+                    <option>Select Time</option>
+                    <option>Select Time</option>
+                    <option>Select Time</option>
+                    <option>Select Time</option>
+
+                </select>
+
+                <table class="time-table">
+                    <tbody>
+                        <tr>
+                            <td>08:00-10:00 am</td>
+                        </tr>
+                        <tr>
+                            <td>10:00-12:00 pm</td>
+                        </tr>
+                        <tr>
+                            <td>12:00-15:00 pm</td>
+                        </tr>
+                        <tr>
+                            <td>15:00-17:00 pm</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br>
+                <button type="button" onclick="redirectToSuccessPage()">Submit</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function redirectToSuccessPage() {
+            window.location.href = "stu_booking_success.html";
+        }
+
+        function updateDateTime() {
+            var currentDate = new Date();
+            var day = currentDate.toLocaleDateString('en-US', { weekday: 'long' });
+            var date = currentDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+            var time = currentDate.toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true });
+            var dateTimeString = day + ", " + date + " " + time;
+            document.getElementById('currentDateTime').textContent = dateTimeString;
+        }
+
+        updateDateTime();
+        setInterval(updateDateTime, 1000);
+
+        function confirmLogout() {
+            Swal.fire({
+                title: 'Would you like to log out?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Logout',
+                cancelButtonText: 'Cancel'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = 'homepage.html';
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

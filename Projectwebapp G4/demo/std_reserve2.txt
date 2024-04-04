@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Room Booking</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin: 20px;
+            width: 300px;
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s ease;
+        }
+
+        .room-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .room-info i {
+            font-size: 24px;
+            margin-right: 10px;
+            color: #4CAF50;
+        }
+
+        .time-slot {
+            margin-bottom: 20px;
+        }
+
+        .status {
+            padding: 8px 16px;
+            border-radius: 20px;
+            color: #fff;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .status {
+            font-weight: bold;
+        }
+
+        .available {
+            background-color: #4CAF50;
+        }
+
+        .reserved {
+            background-color: #FF5733;
+        }
+
+        .pending {
+            background-color: #1d9498;
+        }
+
+        .disable {
+            background-color: #20c120;
+        }
+
+        .card button[type="submit"] {
+            width: 200px;
+            padding: 12px 24px;
+            background-color: dodgerblue;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 20px;
+            transition: background-color 0.3s ease;
+            margin-top: 15px;
+        }
+
+        .card button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        nav {
+            background-color: #1c1b1b;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            /* เพิ่มระยะห่างด้านบนและด้านล่าง */
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        nav a:hover {
+            text-decoration: none;
+        }
+
+        .right-buttons {
+            display: flex;
+            align-items: center;
+        }
+
+        .register-btn,
+        .logout-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .logout-btn {
+            background-color: #c61111;
+        }
+
+        .register-btn:hover {
+            background-color: #45a049;
+        }
+
+        .logout-btn:hover {
+            background-color: #27358b;
+        }
+
+        .nav {
+            display: flex;
+            margin-right: 5px;
+        }
+
+        .nav h1 {
+            margin: 0;
+            /* เพื่อลบระยะห่างเพิ่มเติม */
+            padding-right: 20px;
+            /* เพิ่มระยะห่างระหว่างลิงค์ */
+            white-space: nowrap;
+            /* ไม่ให้ข้อความขึ้นบรรทัดใหม่ */
+        }
+
+        .nav a {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="nav">
+            <h1><a href="homepage.html">Homepage</a></h1>
+            <h1><a href="std_reserve.html">Reserved status</a></h1>
+            <h1><a href="std_history.html">History</a></h1>
+        </div>
+        <div class="right-buttons">
+            <a class="logout-btn" href="std_logout.html">Logout</a>
+        </div>
+    </nav>
+
+    <h2 style="text-align: center;">Library Room Booking</h2>
+    <div class="container">
+        <div class="card">
+            <div class="room-info">
+                <i class="fas fa-book"></i>
+                <h3>Room 1</h3>
+            </div>
+            <hr>
+            <div class="time-slot">
+                <h3>Room Status</h3>
+                <span class="status disable">Available</span>
+            </div>
+            <button type="submit">Click</button>
+        </div>
+
+        <div class="card">
+            <div class="room-info">
+                <i class="fas fa-book"></i>
+                <h3>Room 2</h3>
+            </div>
+            <hr>
+            <div class="time-slot">
+                <h3>Room Status</h3>
+                <span class="status reserved">Reserved</span>
+            </div>
+            <button type="submit">Click</button>
+        </div>
+
+        <div class="card">
+            <div class="room-info">
+                <i class="fas fa-book"></i>
+                <h3>Room 3</h3>
+            </div>
+            <hr>
+            <div class="time-slot">
+                <h3>Room Status</h3>
+                <span class="status pending">Pending</span>
+            </div>
+            <button type="submit">Click</button>
+        </div>
+    </div>
+</body>
+
+</html>

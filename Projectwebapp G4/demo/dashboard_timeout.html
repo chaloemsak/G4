@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>logout lecture</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .status-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f6eccd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            height: auto;
+            min-height: 300px;
+        }
+
+        h2 {
+            background-color: rgb(19, 108, 172);
+            text-align: center;
+            border-radius: 20px;
+            padding: 10px;
+            margin: 10px auto;
+            max-width: 40%;
+            font-size: 1.2em;
+            color: white;
+        }
+
+        .alltable {
+            background-color: white;
+            border-radius: 20px;
+            padding: 10px;
+            margin: 5px;
+        }
+
+        th {
+            background-color: #f8e48a;
+            color: rgb(7, 6, 6);
+            text-align: center;
+            border: none;
+            padding: 10px;
+        }
+
+        td {
+            text-align: center;
+            padding: 15px;
+            border: 1px solid #ccc;
+        }
+
+        nav {
+            background-color: #1c1b1b;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 9999;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 15px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            text-decoration: none;
+        }
+
+        .right-buttons {
+            display: flex;
+            align-items: center;
+        }
+
+        .logout-btn {
+            background-color: #ca0e11;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            transition-duration: 0.4s;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-right: 30px;
+        }
+
+        .logout-btn:hover {
+            background-color: #c61111;
+        }
+
+        .nav {
+            display: flex;
+            margin-right: 5px;
+        }
+
+        .nav h1 {
+            margin: 0;
+            padding-right: 20px;
+            white-space: nowrap;
+        }
+
+        .nav a {
+            text-decoration: underline;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        td[data-status="Pending"] {
+            background-color: #3c8fc7;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        td[data-status="Reserved"] {
+            background-color: #ca0e11;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        td[data-status="Available"] {
+            background-color: #2ecc71;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        td[data-status="Disabled"] {
+            background-color: #ccc;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .status-summary {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .status-summary p {
+            margin: 5px;
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        
+
+        .status-summary p.available {
+            color: rgb(14, 182, 31);
+        }
+
+        .status-summary p.pending {
+            color: rgb(46, 139, 214);
+        }
+
+        .status-summary p.reserved {
+            color: rgb(156, 14, 14);
+        }
+
+        .status-summary p.disabled {
+            color: rgb(109, 104, 104);
+        }
+
+        .nav .Dashboard a {
+            color: white;
+            background-color: #35a1bf;
+            border-radius: 20px;
+            padding: 10px;
+        }
+
+        .nav .Home a {
+            color: white;
+            background-color: #35a1bf;
+            border-radius: 20px;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="nav">
+            <h1 class="Home"><a href="homepage.html">Home</a></h1>
+            <h1><a href="Booking_request.html">Booking request</a></h1>
+            <h1><a href="lecture_dashboard.html">Dashboard</a></h1>
+            <h1><a href="lecture_history.html">History</a></h1>
+        </div>
+        <div class="right-buttons">
+            <a class="logout-btn" href="homepage.html">Logout</a>
+        </div>
+    </nav>
+    <div class="status-container">
+        <h2>Room reservation system</h2>
+        <div class="alltable">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Room / Time</th>
+                        <th>08:00-10:00</th>
+                        <th>10:00-12:00</th>
+                        <th>13:00-15:00</th>
+                        <th>15:00-17:00</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Room 1</td>
+                        <td data-status="Reserved">Time out</td>
+                        <td data-status="Reserved">Reserved</td>
+                        <td data-status="Pending">Pending</td>
+                        <td data-status="Disabled">Disabled</td>
+                    </tr>
+                    <tr>
+                        <td>Room 2</td>
+                        <td data-status="Disabled">Time out</td>
+                        <td data-status="Reserved">Reserved</td>
+                        <td data-status="Pending">Pending</td>
+                        <td data-status="Available">Available</td>
+                    </tr>
+                    <tr>
+                        <td>Room 3</td>
+                        <td data-status="Pending">Time out</td>
+                        <td data-status="Reserved">Reserved</td>
+                        <td data-status="Available">Available</td>
+                        <td data-status="Disabled">Disabled</td>
+                    </tr>
+                    <tr>
+                        <td>Room 4</td>
+                        <td data-status="Available">Time out</td>
+                        <td data-status="Reserved">Reserved</td>
+                        <td data-status="Pending">Pending</td>
+                        <td data-status="Disabled">Disabled</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="status-summary">
+            <p class="pending">Pending: 3</p>
+            <p class="reserved">Reserved: 4</p>
+            <p class="available">Available: 2</p>
+            <p class="disabled">Disabled: 3</p>
+        </div>
+    </div>
+</body>
+
+</html>
